@@ -12,6 +12,8 @@ func _ready():
 	if $LoadSettings.showfps == "true":
 		$MarginContainer/VBoxContainer/CheckBox.pressed = true
 		
+	
+		
 	get_node("MarginContainer/VBoxContainer/Button").connect("pressed", self, "_on_Button_pressed")
 	get_node("MarginContainer/VBoxContainer/Button2").connect("pressed", self, "_on_Button2_pressed")
 	get_node("MarginContainer/VBoxContainer/CheckBox").connect("toggled", self, "_on_CheckBox_toggled")

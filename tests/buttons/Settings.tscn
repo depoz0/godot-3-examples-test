@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tests/buttons/Settings.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/new_dynamicfont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://other/LoadSettings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/themes/theme.tres" type="Theme" id=3]
+[ext_resource path="res://other/LoadSettings.tscn" type="PackedScene" id=4]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -196,6 +197,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 4
 size_flags_vertical = 1
+theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
@@ -204,7 +206,7 @@ group = null
 text = "Back"
 flat = false
 align = 1
-_sections_unfolded = [ "Mouse", "Rect", "Size Flags", "custom_fonts" ]
+_sections_unfolded = [ "Mouse", "Rect", "Size Flags", "Theme", "custom_fonts" ]
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" index="7"]
 
@@ -227,6 +229,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="LoadSettings" parent="." index="1" instance=ExtResource( 3 )]
+[node name="LoadSettings" parent="." index="1" instance=ExtResource( 4 )]
 
 

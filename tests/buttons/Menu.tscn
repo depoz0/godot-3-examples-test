@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tests/buttons/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/new_dynamicfont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://other/admob/admob.tscn" type="PackedScene" id=3]
-[ext_resource path="res://other/LoadSettings.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/themes/theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/themes/buttons.tres" type="StyleBox" id=4]
+[ext_resource path="res://other/admob/admob.tscn" type="PackedScene" id=5]
+[ext_resource path="res://other/LoadSettings.tscn" type="PackedScene" id=6]
 
-[node name="MarginContainer" type="MarginContainer" index="0"]
+[node name="MarginContainer" type="MarginContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -195,6 +197,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 5
 size_flags_vertical = 1
+theme = ExtResource( 3 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = ExtResource( 4 )
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
@@ -203,7 +208,7 @@ group = null
 text = "START"
 flat = false
 align = 1
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="Button3" type="Button" parent="VBoxContainer" index="7"]
 
@@ -222,6 +227,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 5
 size_flags_vertical = 1
+theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
@@ -230,7 +236,7 @@ group = null
 text = "MAP"
 flat = false
 align = 1
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="Button4" type="Button" parent="VBoxContainer" index="8"]
 
@@ -249,6 +255,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 5
 size_flags_vertical = 1
+theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
@@ -257,7 +264,7 @@ group = null
 text = "SETTINGS"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "Size Flags", "Theme", "custom_fonts" ]
 
 [node name="Button2" type="Button" parent="VBoxContainer" index="9"]
 
@@ -276,6 +283,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 5
 size_flags_vertical = 1
+theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
@@ -284,10 +292,10 @@ group = null
 text = "EXIT"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "Size Flags", "Theme", "custom_fonts" ]
 
-[node name="Banner" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Banner" parent="." index="1" instance=ExtResource( 5 )]
 
-[node name="LoadSettings" parent="." index="2" instance=ExtResource( 4 )]
+[node name="LoadSettings" parent="." index="2" instance=ExtResource( 6 )]
 
 
