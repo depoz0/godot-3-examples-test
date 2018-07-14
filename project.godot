@@ -1,0 +1,50 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=3
+
+[android]
+
+modules="org/godotengine/godot/GodotAdMob"
+
+[application]
+
+config/name="Godot AnRO"
+run/main_scene="res://tests/buttons/Menu.tscn"
+boot_splash/image="res://assets/black_dot.png"
+boot_splash/fullsize=false
+config/icon="res://icon2.png"
+
+[display]
+
+window/size/width=540
+window/size/height=960
+window/handheld/orientation="sensor"
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+window/stretch/shrink="1"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "TileSetCutter", "ch.fischspiele.tilesethelper" )
+
+[input]
+
+move_up=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+move_down=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+move_left=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+move_right=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+
+[rendering]
+
+quality/2d/use_pixel_snap=true
+environment/default_environment="res://default_env.tres"
