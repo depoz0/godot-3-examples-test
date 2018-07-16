@@ -238,7 +238,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="Button4" type="Button" parent="VBoxContainer" index="8"]
+[node name="Button5" type="Button" parent="VBoxContainer" index="8"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -261,12 +261,12 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "SETTINGS"
+text = "MAP2"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "Size Flags", "Theme", "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="Button2" type="Button" parent="VBoxContainer" index="9"]
+[node name="Button4" type="Button" parent="VBoxContainer" index="9"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -275,6 +275,34 @@ anchor_bottom = 0.0
 margin_top = 316.0
 margin_right = 300.0
 margin_bottom = 416.0
+rect_min_size = Vector2( 200, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 5
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "SETTINGS"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Size Flags", "Theme", "custom_fonts" ]
+
+[node name="Button2" type="Button" parent="VBoxContainer" index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 420.0
+margin_right = 300.0
+margin_bottom = 520.0
 rect_min_size = Vector2( 200, 100 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false

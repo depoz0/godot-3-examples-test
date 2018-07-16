@@ -25,6 +25,7 @@ func _ready():
 	get_node("VBoxContainer/Button2").connect("pressed", self, "_on_Button2_pressed")
 	get_node("VBoxContainer/Button3").connect("pressed", self, "_on_Button3_pressed")
 	get_node("VBoxContainer/Button4").connect("pressed", self, "_on_Button4_pressed")
+	get_node("VBoxContainer/Button5").connect("pressed", self, "_on_Button5_pressed")
 	#print(get_node("/root"))
 	#Engine.set_window_size(Vector2(540, 960))
 	
@@ -55,6 +56,9 @@ func _on_Button2_pressed():
 	
 func _on_Button3_pressed():
 	get_tree().change_scene("res://maps/TestMap.tscn")
+	
+func _on_Button5_pressed():
+	get_tree().change_scene("res://maps/TestMap2.tscn")
 
 func _on_Button4_pressed():
 	get_tree().change_scene("res://tests/buttons/Settings.tscn")

@@ -1,5 +1,4 @@
 .import/
 Godot AnRO.apk
 *.import
-
-
+*.gitignore
