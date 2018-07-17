@@ -44,6 +44,10 @@ func _ready():
 
 	
 # Notes load
+	var notes_data = File.new()
+	if not notes_data.file_exists("res://todo.txt"):
+		savefile("res://todo.txt", "")
+	notes_data.close()
 	$VBoxContainer/TextEdit.text = loadfile("res://todo.txt", 1)
 	
 		
