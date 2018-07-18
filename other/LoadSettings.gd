@@ -4,10 +4,12 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 var showfps = "false"
+var todo = "false"
 
 func _ready():
 	load_data()
 	get_node("FPS")
+	
 		
 		
 #func _process(delta):
@@ -29,6 +31,8 @@ func load_data():
 	for i in current_line.keys():
 		if i == "showfps":
 			showfps = current_line[i]
+		if i == "todo":
+			todo = current_line[i]
 		
 			     
 	save_data.close()

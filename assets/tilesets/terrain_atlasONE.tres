@@ -14,12 +14,12 @@
 0/autotile/icon_coordinate = Vector2( 22, 5 )
 0/autotile/tile_size = Vector2( 32, 32 )
 0/autotile/spacing = 0
-0/autotile/bitmask_flags = [ Vector2( 15, 2 ), 256, Vector2( 15, 3 ), 260, Vector2( 15, 4 ), 4, Vector2( 15, 5 ), 325, Vector2( 16, 0 ), 69, Vector2( 16, 1 ), 321, Vector2( 16, 2 ), 320, Vector2( 16, 3 ), 325, Vector2( 16, 4 ), 5, Vector2( 16, 5 ), 325, Vector2( 17, 0 ), 261, Vector2( 17, 1 ), 324, Vector2( 17, 2 ), 64, Vector2( 17, 3 ), 65, Vector2( 17, 4 ), 1, Vector2( 17, 5 ), 325 ]
+0/autotile/bitmask_flags = [ Vector2( 30, 3 ), 260, Vector2( 30, 4 ), 260, Vector2( 31, 3 ), 65, Vector2( 31, 4 ), 65 ]
 0/autotile/occluder_map = [  ]
 0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
+0/autotile/priority_map = [ Vector3( 31, 0, 5 ) ]
 0/occluder_offset = Vector2( 512, 512 )
 0/navigation_offset = Vector2( 512, 512 )
 0/shapes = [  ]
-_sections_unfolded = [ "0" ]
+_sections_unfolded = [ "0", "Resource" ]
 

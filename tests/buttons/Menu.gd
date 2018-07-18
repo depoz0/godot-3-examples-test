@@ -1,7 +1,7 @@
 extends MarginContainer
 
 
-
+var is_android = true # if exporting to Android change to "true"
 
 
 
@@ -14,41 +14,61 @@ func _ready():
 		$LoadSettings/FPS.show()
 	else:
 		$LoadSettings/FPS.hide()
+	if $LoadSettings.todo == "true":
+		$VBoxContainer/TextEdit.show()
+	else:
+		$VBoxContainer/TextEdit.hide()
 		
-# Auto Versioning (testing)
-	var notes = File.new()
-	var dd = notes.get_md5("res://default_env.tres")
+	if is_android == true:
+		$VBoxContainer/version.hide()
+		
+# Auto Versioning (testing / not working on Android)
+	if is_android == false:
+		var notes = File.new()
+		#var dd = notes.get_md5("res://default_env.tres")
+		var dd = notes.get_modified_time("res://default_env.tres")
+		print(dd)
+		var version = loadfile("res://version", 1)
+		var verhash
+		var verver
+		var build
+		var build2
+		var build3
+		print (version)
+		if version["ver"] != null:
+			for i in version.keys():
+				if i == "hash":
+					verhash = version[i]
+				if i == "ver":
+					verver = version[i]
+			if verhash < str(dd):
+				var veri = str(verver).split(".")
+				build = int(veri[2]) + 1
+				build2 = int(veri[1])
+				build3 = int(veri[0])
+				if build > 99:
+					build2 = build2 + 1
+					build = "1"
+				if build2 > 99:
+					build3 = build3 + 1
+					build2 = "1"
+				verver = str(build3) + "." + str(build2) + "." + str(build)
+				version = { "hash": str(dd), "ver": verver }
+				print ("VERSION AUTO CHANGED !!!!!!!!")
+				savefile("res://version", version)
+		
 	
-	var version = loadfile("res://version", 1)
-	var verhash
-	var verver
-	print (version)
-	if version["ver"] != null:
-		for i in version.keys():
-			if i == "hash":
-				verhash = version[i]
-			if i == "ver":
-				verver = version[i]
-		if verhash != dd:
-			var veri = str(verver).split(".")
-			var build = int(veri[2]) + 1
-			verver = veri[0] + "." + veri[1] + "." + str(build)
-			version = { "hash": dd, "ver": verver }
-			print ("VERSION AUTO CHANGED !!!!!!!!")
-			savefile("res://version.txt", version)
-	version = { "hash": dd, "ver": verver }
-
-	$VBoxContainer/version.text = str(verver)
+		$VBoxContainer/version.text = "Ver: " + str(build3) + "." + str(build2) + "_b" + str(build)
 
 	
 
 	
 # Notes load
 	var notes_data = File.new()
-	if not notes_data.file_exists("res://todo.txt"):
-		savefile("res://todo.txt", "")
+	if not notes_data.file_exists("user://todo.txt"):
+		savefile("user://todo.txt", "TODO:")
 	notes_data.close()
-	$VBoxContainer/TextEdit.text = loadfile("res://todo.txt", 1)
+	$VBoxContainer/TextEdit.text = loadfile("user://todo.txt", 1)
 	
 		
 		
@@ -68,7 +88,7 @@ func _ready():
 	
 	
 func _on_TextEdit_text_changed():
-	savefile("res://todo.txt", $VBoxContainer/TextEdit.text)
+	savefile("user://todo.txt", $VBoxContainer/TextEdit.text)
 
 
 func savefile(path, tostore):

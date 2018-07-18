@@ -16,10 +16,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 483.0
-margin_top = 9.0
-margin_right = 531.0
-margin_bottom = 29.0
+margin_left = 481.0
+margin_top = 6.0
+margin_right = 534.0
+margin_bottom = 55.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -35,7 +35,7 @@ group = null
 text = "Menu"
 flat = false
 align = 1
-_sections_unfolded = [ "Theme" ]
+_sections_unfolded = [ "Anchor", "Margin", "Theme", "custom_fonts" ]
 
 [node name="Pause" type="Button" parent="." index="1"]
 
@@ -44,9 +44,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 482.0
-margin_top = 37.0
-margin_right = 532.0
-margin_bottom = 57.0
+margin_top = 62.0
+margin_right = 535.0
+margin_bottom = 111.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -62,7 +62,7 @@ group = null
 text = "Pause"
 flat = false
 align = 1
-_sections_unfolded = [ "Pause", "Theme" ]
+_sections_unfolded = [ "Margin", "Pause", "Theme", "custom_fonts" ]
 
 [node name="Paused" type="Label" parent="." index="2"]
 

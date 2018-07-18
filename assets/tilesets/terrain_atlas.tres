@@ -9112,5 +9112,5 @@
 1011/occluder_offset = Vector2( 16, 16 )
 1011/navigation_offset = Vector2( 16, 16 )
 1011/shapes = [  ]
-_sections_unfolded = [ "3", "597" ]
+_sections_unfolded = [ "0", "3", "597" ]
 
