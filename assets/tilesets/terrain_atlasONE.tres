@@ -14,7 +14,7 @@
 0/autotile/icon_coordinate = Vector2( 22, 5 )
 0/autotile/tile_size = Vector2( 32, 32 )
 0/autotile/spacing = 0
-0/autotile/bitmask_flags = [ Vector2( 30, 3 ), 260, Vector2( 30, 4 ), 260, Vector2( 31, 3 ), 65, Vector2( 31, 4 ), 65 ]
+0/autotile/bitmask_flags = [ Vector2( 0, 14 ), 325, Vector2( 1, 14 ), 325, Vector2( 2, 14 ), 325, Vector2( 3, 11 ), 256, Vector2( 3, 12 ), 260, Vector2( 3, 13 ), 4, Vector2( 4, 9 ), 69, Vector2( 4, 10 ), 321, Vector2( 4, 11 ), 320, Vector2( 4, 12 ), 325, Vector2( 4, 13 ), 5, Vector2( 5, 9 ), 261, Vector2( 5, 10 ), 324, Vector2( 5, 11 ), 64, Vector2( 5, 12 ), 65, Vector2( 5, 13 ), 1 ]
 0/autotile/occluder_map = [  ]
 0/autotile/navpoly_map = [  ]
 0/autotile/priority_map = [ Vector3( 31, 0, 5 ) ]

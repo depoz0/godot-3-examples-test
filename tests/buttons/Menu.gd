@@ -1,7 +1,7 @@
 extends MarginContainer
 
 
-var is_android = true # if exporting to Android change to "true"
+var is_android = false # if exporting to Android change to "true"
 
 
 
@@ -27,7 +27,6 @@ func _ready():
 		var notes = File.new()
 		#var dd = notes.get_md5("res://default_env.tres")
 		var dd = notes.get_modified_time("res://default_env.tres")
-		print(dd)
 		var version = loadfile("res://version", 1)
 		var verhash
 		var verver
@@ -53,12 +52,12 @@ func _ready():
 					build3 = build3 + 1
 					build2 = "1"
 				verver = str(build3) + "." + str(build2) + "." + str(build)
-				version = { "hash": str(dd), "ver": verver }
+				version = { "hash": str(dd), "ver": verver, "build": "Ver: " + str(build3) + "." + str(build2) + "_b" + str(build) }
 				print ("VERSION AUTO CHANGED !!!!!!!!")
 				savefile("res://version", version)
 		
 	
-		$VBoxContainer/version.text = "Ver: " + str(build3) + "." + str(build2) + "_b" + str(build)
+		$VBoxContainer/version.text =  version["build"]
 
 	
 
@@ -117,9 +116,9 @@ func _on_Button_pressed():
 	#get_node("VBoxContainer/Label2").text = str(cnt - 2)
 	# Можно написать также:
 	# $Label2.text = str(cnt - 2)
-	print("lolikiiii " + str(buttonpressedtimes+1))
+	print("----> " + str(buttonpressedtimes+1))
 	
-	
+	get_tree().change_scene("res://maps/TestMap2.tscn")
 	
 	# Удаление кнопки после пяти нажатий
 	buttonpressedtimes += 1
