@@ -5,6 +5,7 @@
 [node name="FPS" type="Node2D"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility", "Z Index" ]
 
 [node name="Label" type="Label" parent="." index="0"]
 
@@ -25,5 +26,6 @@ size_flags_vertical = 4
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Visibility" ]
 
 

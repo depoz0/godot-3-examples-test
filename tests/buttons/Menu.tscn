@@ -7,7 +7,7 @@
 [ext_resource path="res://other/admob/admob.tscn" type="PackedScene" id=5]
 [ext_resource path="res://other/LoadSettings.tscn" type="PackedScene" id=6]
 
-[node name="MarginContainer" type="MarginContainer" index="0"]
+[node name="MarginContainer" type="MarginContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -240,7 +240,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "START"
+text = "New Game"
 flat = false
 align = 1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
@@ -268,7 +268,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "DEV MAP"
+text = "Resume"
 flat = false
 align = 1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
@@ -325,7 +325,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "SETTINGS"
+text = "Settings"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect", "Size Flags", "Theme", "custom_fonts" ]
@@ -353,7 +353,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "EXIT"
+text = "Exit"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect", "Size Flags", "Theme", "custom_fonts" ]

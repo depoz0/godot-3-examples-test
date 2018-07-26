@@ -4,10 +4,14 @@ extends MarginContainer
 var is_android = false # if exporting to Android change to "true"
 
 
-
-var buttonpressedtimes = 0
+var buttonpressedtimes = 0 # temp
 
 func _ready():
+	if resume_game("scene") == null:
+		$VBoxContainer/Button3.hide()
+	else:
+		$VBoxContainer/Button3.show()
+		
 	if get_tree().paused == true: #снятие с паузы
 		get_tree().paused = false
 	if $LoadSettings.showfps == "true":
@@ -45,7 +49,7 @@ func _ready():
 				build = int(veri[2]) + 1
 				build2 = int(veri[1])
 				build3 = int(veri[0])
-				if build > 99:
+				if build > 999:
 					build2 = build2 + 1
 					build = "1"
 				if build2 > 99:
@@ -131,7 +135,12 @@ func _on_Button2_pressed():
 	get_tree().quit()
 	
 func _on_Button3_pressed():
-	get_tree().change_scene("res://maps/TestMap.tscn")
+	signals.loadgame = "true"
+	get_tree().change_scene(resume_game("scene"))
+
+	
+	
+
 	
 func _on_Button5_pressed():
 	get_tree().change_scene("res://maps/TestMap2.tscn")
@@ -148,4 +157,35 @@ func _process(delta):
 func fps():			# FPS
 	var det = str(Engine.get_frames_per_second())
 	return det
+	
+func resume_game(level):
+	var filenamee
+	var save_game = File.new()
+	if not save_game.file_exists("res://savegame.save"):
+		return # Error! We don't have a save to load.
+
+    # We need to revert the game state so we're not cloning objects during loading. This will vary wildly depending on the needs of a project, so take care with this step.
+    # For our example, we will accomplish this by deleting savable objects.
+	#var save_nodes = get_tree().get_nodes_in_group("gamesave")
+	#for i in save_nodes:
+	#	i.queue_free()
+
+	# Load the file line by line and process that dictionary to restore the object it represents
+	save_game.open("res://savegame.save", File.READ)
+	while not save_game.eof_reached():
+		var current_line = parse_json(save_game.get_as_text())
+		# First we need to create the object and add it to the tree and set its position.
+	#	var new_object = load(current_line["filename"]).instance()
+	#	get_node(current_line["parent"]).add_child(new_object)
+	#	new_object.position = Vector2(current_line["pos_x"], current_line["pos_y"])
+		# Now we set the remaining variables.
+		for i in current_line.keys():
+			#if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
+			#	continue
+		#	new_object.set(i, current_line[i])
+			if i == "filename" and level == "scene":
+				return current_line[i]
+				
+	save_game.close()
+
 	

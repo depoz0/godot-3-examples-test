@@ -53,7 +53,12 @@ func _process(delta):
 		if $Sprite/AnimationPlayer.is_playing() == false:
 			$Sprite/AnimationPlayer.play("Новая анимация")
 		
+	if (Input.is_action_just_pressed("move_run")):
+		MOTION_SPEED = 200
+	if (Input.is_action_just_released("move_run")):
+		MOTION_SPEED = 100
+		
+		
 	motion = motion.normalized() * MOTION_SPEED * delta
 	move_and_collide(motion)
 
-	

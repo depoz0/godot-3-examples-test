@@ -10,6 +10,7 @@ func _ready():
 	load_data()
 	get_node("FPS")
 	
+	
 		
 		
 #func _process(delta):
