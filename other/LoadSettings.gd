@@ -8,7 +8,7 @@ var todo = "false"
 
 func _ready():
 	load_data()
-	get_node("FPS")
+	#get_node("FPS")
 	
 	
 		

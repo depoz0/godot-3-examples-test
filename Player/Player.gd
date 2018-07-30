@@ -2,12 +2,21 @@ extends KinematicBody2D
 
 export var MOTION_SPEED = 100
 
+
+onready var lives = signals.lives
+
 #SOunds
 onready var soundsteptimer = get_node("walkgrass/Timer")
 onready var grasssteps = get_node("walkgrass")
 
 func _ready():
-	pass
+	# Game settings FPS show/hide:
+	if $CanvasLayer/LoadSettings.showfps == "true":
+		$CanvasLayer/LoadSettings/FPS/Label.show()
+	else:
+		$CanvasLayer/LoadSettings/FPS/Label.hide()
+		
+		
 	
 
 func _process(delta):
@@ -61,4 +70,7 @@ func _process(delta):
 		
 	motion = motion.normalized() * MOTION_SPEED * delta
 	move_and_collide(motion)
-
+	
+	if lives < 0:
+		$".".queue_free()
+		$H

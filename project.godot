@@ -24,6 +24,7 @@ config/icon="res://icon2.png"
 
 dir="*res://engine/directions.gd"
 signals="*res://engine/signals.gd"
+items="*res://engine/items.gd"
 
 [display]
 

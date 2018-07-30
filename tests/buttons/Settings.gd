@@ -11,6 +11,9 @@ func _ready():
 	#get_node("LoadSettings").load_data()
 	if $LoadSettings.showfps == "true":
 		$MarginContainer/VBoxContainer/CheckBox.pressed = true
+		$LoadSettings/FPS.show()
+	else:
+		$LoadSettings/FPS.hide()
 	if $LoadSettings.todo == "true":
 		$MarginContainer/VBoxContainer/CheckBox2.pressed = true
 		

@@ -6,11 +6,7 @@ extends Node2D
 
 func _ready():
 	
-	# Game settings FPS show/hide:
-	if $CanvasLayer/LoadSettings.showfps == "true":
-		$CanvasLayer/FPS.show()
-	else:
-		$CanvasLayer/FPS.hide()
+
 
 		
 	# Game save load:	
@@ -50,3 +46,4 @@ func loadgameuu():
 		$Player/KinematicBody2D.position.y = current_line["pos_y"]
 		break
 	save_game.close()
+	
