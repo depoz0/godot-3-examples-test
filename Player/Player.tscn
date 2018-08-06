@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://engine/ZoomforCamera2D.gd" type="Script" id=3]
-[ext_resource path="res://Player/sounds/Grass_Walk.wav" type="AudioStream" id=4]
-[ext_resource path="res://other/LoadSettings.tscn" type="PackedScene" id=5]
-[ext_resource path="res://engine/HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://other/ExitButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/tilesets/obj_misk_atlas.png" type="Texture" id=3]
+[ext_resource path="res://engine/ZoomforCamera2D.gd" type="Script" id=4]
+[ext_resource path="res://Player/sounds/Grass_Walk.wav" type="AudioStream" id=5]
+[ext_resource path="res://other/LoadSettings.tscn" type="PackedScene" id=6]
+[ext_resource path="res://engine/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://other/ExitButton.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -37,7 +38,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 radius = 50.0
 
-[node name="Player" type="Node2D" index="0"]
+[node name="Player" type="Node2D"]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." index="0"]
 
@@ -58,7 +59,6 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D" index="1"]
 
-editor/display_folded = true
 position = Vector2( -9.53674e-007, 2.26498e-006 )
 scale = Vector2( 0.3125, 0.3125 )
 texture = ExtResource( 2 )
@@ -75,8 +75,18 @@ playback_speed = 1.0
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="PlayerArea" type="Area2D" parent="KinematicBody2D" index="2"]
+[node name="Sprite2" type="Sprite" parent="KinematicBody2D" index="2"]
 
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 709, 998, 22, 20 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PlayerArea" type="Area2D" parent="KinematicBody2D" index="3"]
+
+visible = false
 position = Vector2( -250, -180 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -88,11 +98,10 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/PlayerArea" index="0"]
 
-visible = false
 position = Vector2( 250, 180 )
 shape = SubResource( 3 )
 
-[node name="Camera2D" type="Camera2D" parent="KinematicBody2D" index="3"]
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D" index="4"]
 
 anchor_mode = 1
 rotating = false
@@ -116,13 +125,14 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing", "Transform", "Z Index" ]
 
-[node name="walkgrass" type="AudioStreamPlayer2D" parent="KinematicBody2D" index="4"]
+[node name="walkgrass" type="AudioStreamPlayer2D" parent="KinematicBody2D" index="5"]
 
+editor/display_folded = true
 position = Vector2( -250, -180 )
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -138,7 +148,7 @@ wait_time = 0.5
 one_shot = true
 autostart = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="KinematicBody2D" index="5"]
+[node name="CanvasLayer" type="CanvasLayer" parent="KinematicBody2D" index="6"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -146,10 +156,10 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="LoadSettings" parent="KinematicBody2D/CanvasLayer" index="0" instance=ExtResource( 5 )]
+[node name="LoadSettings" parent="KinematicBody2D/CanvasLayer" index="0" instance=ExtResource( 6 )]
 
-[node name="HUD" parent="KinematicBody2D/CanvasLayer" index="1" instance=ExtResource( 6 )]
+[node name="HUD" parent="KinematicBody2D/CanvasLayer" index="1" instance=ExtResource( 7 )]
 
-[node name="BackToMenuButton" parent="KinematicBody2D/CanvasLayer" index="2" instance=ExtResource( 7 )]
+[node name="BackToMenuButton" parent="KinematicBody2D/CanvasLayer" index="2" instance=ExtResource( 8 )]
 
 

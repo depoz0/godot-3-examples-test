@@ -1,14 +1,9 @@
-extends Node
+extends Area2D
 
+var taken = false
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-signal loadgame(tor)
-signal bog
-var loadgame
-var lives = 10
-var lei = false
-var treeap = false
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -20,7 +15,9 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-func save_game():
-	pass
-func load_game():
-	pass
+
+func _on_lei_body_entered(body):
+	if not taken and body is preload("res://Player/Player.gd"):
+		$AnimationPlayer.play("taken")
+		taken = true
+		signals.lei = true

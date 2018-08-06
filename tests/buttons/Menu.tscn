@@ -213,7 +213,7 @@ caret_block_mode = false
 caret_blink = false
 caret_blink_speed = 0.65
 caret_moving_by_right_click = true
-_sections_unfolded = [ "Caret", "Grow Direction", "Rect", "Size Flags" ]
+_sections_unfolded = [ "Caret", "Grow Direction", "Rect", "Size Flags", "custom_fonts" ]
 
 [node name="Button" type="Button" parent="VBoxContainer" index="7"]
 

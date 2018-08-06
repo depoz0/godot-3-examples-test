@@ -1,17 +1,18 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://maps/TestMap2.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/terrain_atlasONE.tres" type="TileSet" id=2]
 [ext_resource path="res://sounds/Water1.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/tilesets/terrain_atlas.png" type="Texture" id=4]
 [ext_resource path="res://assets/tilesets/terrain_atlas.tres" type="TileSet" id=5]
-[ext_resource path="res://assets/tilesets/obj_misk_atlas.png" type="Texture" id=6]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Player/cat.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Player/NPCDen.tscn" type="PackedScene" id=9]
-[ext_resource path="res://other/ExitButton.tscn" type="PackedScene" id=10]
-[ext_resource path="res://other/LoadSettings.tscn" type="PackedScene" id=11]
-[ext_resource path="res://engine/items/apple.tscn" type="PackedScene" id=12]
+[ext_resource path="res://engine/items/apple.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/tilesets/obj_misk_atlas.png" type="Texture" id=7]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player/cat.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Player/NPCDen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://other/ExitButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://other/LoadSettings.tscn" type="PackedScene" id=12]
+[ext_resource path="res://engine/items/lei.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -49,13 +50,18 @@ tracks/1/keys = {
 "values": [ Vector2( 224.158, 342 ), Vector2( 225, 342 ) ]
 }
 
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
 [sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 14.0946
 height = 5.95957
 
-[node name="Node2D" type="Node2D" groups=[
+[node name="Node2D" type="Node2D" index="0" groups=[
 "gamesave",
 ]]
 
@@ -227,7 +233,6 @@ blend_times = [  ]
 
 [node name="TileMap" type="TileMap" parent="Navigation2D" index="3"]
 
-editor/display_folded = true
 z_index = 1
 mode = 0
 tile_set = ExtResource( 5 )
@@ -431,7 +436,6 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform",
 
 [node name="treeA1" type="Sprite" parent="Navigation2D/TileMap" index="7"]
 
-editor/display_folded = true
 position = Vector2( 1263.52, 324.172 )
 z_index = 1
 texture = ExtResource( 4 )
@@ -442,21 +446,67 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="Navigation2D/TileMap/treeA1" index="0"]
+[node name="Area2D" type="Area2D" parent="Navigation2D/TileMap/treeA1" index="0"]
 
-editor/display_folded = true
+position = Vector2( -1.82544, 34.602 )
+scale = Vector2( 1.5924, 1.65285 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation2D/TileMap/treeA1/Area2D" index="0"]
+
+position = Vector2( 0.742737, 3.13838 )
+scale = Vector2( 1.64937, 1.17276 )
+shape = SubResource( 4 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="KinematicBody2D" type="StaticBody2D" parent="Navigation2D/TileMap/treeA1" index="1"]
+
 visible = false
 position = Vector2( -388, -105 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
-collision/safe_margin = 0.08
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Navigation2D/TileMap/treeA1/KinematicBody2D" index="0"]
 
 position = Vector2( 2.42072, -0.85437 )
 build_mode = 0
 polygon = PoolVector2Array( 359.564, 147.409, 377.045, 152.538, 383.849, 161.121, 390.339, 152.328, 404.784, 154.526, 403.214, 146.676, 409.703, 146.257, 398.608, 139.453, 370.765, 139.244 )
+
+[node name="appletree1" parent="Navigation2D/TileMap/treeA1" index="2" groups=[
+"ontree",
+] instance=ExtResource( 6 )]
+
+position = Vector2( -24.2114, 0.0161438 )
+scale = Vector2( 0.459319, 0.459319 )
+_sections_unfolded = [ "Pickable", "Transform", "Z Index" ]
+
+[node name="appletree2" parent="Navigation2D/TileMap/treeA1" index="3" groups=[
+"ontree",
+] instance=ExtResource( 6 )]
+
+position = Vector2( 19.5239, -7.15359 )
+scale = Vector2( 0.459319, 0.459319 )
+_sections_unfolded = [ "Pickable", "Transform", "Z Index" ]
+
+[node name="appletree3" parent="Navigation2D/TileMap/treeA1" index="4" groups=[
+"ontree",
+] instance=ExtResource( 6 )]
+
+position = Vector2( -5.57007, -35.4741 )
+scale = Vector2( 0.459319, 0.459319 )
+_sections_unfolded = [ "Pickable", "Transform", "Z Index" ]
 
 [node name="kst" type="Sprite" parent="Navigation2D/TileMap" index="8"]
 
@@ -525,7 +575,7 @@ _sections_unfolded = [ "Cell" ]
 
 editor/display_folded = true
 position = Vector2( 192.853, 49.6536 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 193, 352, 28, 30 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
@@ -569,16 +619,16 @@ format = 1
 tile_data = PoolIntArray( -1048593, 649, 0, -1114064, 649, 0, 3211247, 649, 0, 3145776, 649, 0 )
 _sections_unfolded = [ "Cell" ]
 
-[node name="Player" parent="." index="1" instance=ExtResource( 7 )]
+[node name="Player" parent="." index="1" instance=ExtResource( 8 )]
 
 z_index = 1
 _sections_unfolded = [ "Visibility", "Z Index" ]
 
-[node name="Cat" parent="." index="2" instance=ExtResource( 8 )]
+[node name="Cat" parent="." index="2" instance=ExtResource( 9 )]
 
 position = Vector2( 79.5841, 63.8107 )
 
-[node name="KinematicBody2D" parent="." index="3" instance=ExtResource( 9 )]
+[node name="KinematicBody2D" parent="." index="3" instance=ExtResource( 10 )]
 
 position = Vector2( 295.687, 339.488 )
 
@@ -590,21 +640,39 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="BackToMenuButton" parent="CanvasLayer" index="0" instance=ExtResource( 10 )]
+[node name="BackToMenuButton" parent="CanvasLayer" index="0" instance=ExtResource( 11 )]
 
 visible = false
 position = Vector2( -0.300369, 0.695068 )
 z_index = 2
 _sections_unfolded = [ "Pause", "Z Index" ]
 
-[node name="LoadSettings" parent="CanvasLayer" index="1" instance=ExtResource( 11 )]
+[node name="LoadSettings" parent="CanvasLayer" index="1" instance=ExtResource( 12 )]
 
 position = Vector2( -90.7997, -52.5269 )
 
 [node name="Node2D" type="Node2D" parent="." index="5"]
 
-[node name="apple" parent="Node2D" index="0" instance=ExtResource( 12 )]
+[node name="apple" parent="Node2D" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 1209.29, 374.282 )
+_sections_unfolded = [ "Pickable", "Transform", "Z Index" ]
+
+[node name="apple2" parent="Node2D" index="1" instance=ExtResource( 6 )]
+
+position = Vector2( 1307.5, 339.7 )
+_sections_unfolded = [ "Pickable", "Transform", "Visibility", "Z Index" ]
+
+[node name="apple3" parent="Node2D" index="2" instance=ExtResource( 6 )]
+
+position = Vector2( 1288.32, 387.454 )
+
+[node name="lei" parent="Node2D" index="3" instance=ExtResource( 13 )]
+
+position = Vector2( 1119.87, 277.645 )
+
+[connection signal="body_entered" from="Navigation2D/TileMap/treeA1/Area2D" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="body_exited" from="Navigation2D/TileMap/treeA1/Area2D" to="." method="_on_Area2D_body_exited"]
 
 

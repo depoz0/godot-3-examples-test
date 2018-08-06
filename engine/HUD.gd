@@ -1,14 +1,8 @@
-extends Node
+extends Node2D
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-signal loadgame(tor)
-signal bog
-var loadgame
-var lives = 10
-var lei = false
-var treeap = false
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -20,7 +14,11 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-func save_game():
-	pass
-func load_game():
-	pass
+
+func _on_Button_pressed():
+	var button_lei = get_node("../../Sprite2")
+	if button_lei.is_visible() == true:
+		button_lei.hide()
+	elif button_lei.is_visible() == false:
+		button_lei.show()
+	pass # replace with function body

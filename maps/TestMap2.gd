@@ -1,13 +1,13 @@
 extends Node2D
 
+
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
 
 func _ready():
-	
-
-
+	#fix
+	signals.lei = false
 		
 	# Game save load:	
 	if signals.loadgame == "true":
@@ -23,11 +23,36 @@ func _ready():
 #	pass
 
 func save():
+	var apple1 = 1
+	var apple2 = 1
+	var apple3 = 1
+	var appletree1 = 1
+	var appletree2 = 1
+	var appletree3 = 1
+	
+	if !$Node2D/apple:
+		apple1 = 0
+	if !$Node2D/apple2:
+		apple2 = 0
+	if !$Node2D/apple3:
+		apple3 = 0
+	if !$Navigation2D/TileMap/treeA1/appletree1:
+		appletree1 = 0
+	if !$Navigation2D/TileMap/treeA1/appletree2:
+		appletree2 = 0
+	if !$Navigation2D/TileMap/treeA1/appletree3:
+		appletree3 = 0
+
+		
 	var save_dict = {
 		"filename" : get_filename(),
 		"parent" : get_parent().get_path(),
 		"pos_x" : $Player/KinematicBody2D.position.x, # Vector2 is not supported by JSON
-		"pos_y" : $Player/KinematicBody2D.position.y#,
+		"pos_y" : $Player/KinematicBody2D.position.y,
+		"lives" : signals.lives,
+		"lei" : signals.lei,
+		"apple" : {"1" : apple1, "2" : apple2, "3" : apple3},
+		"appletree" : {"1" : appletree1, "2" : appletree2, "3" : appletree3}
 		#"level" : self.get_script().get_path()
 	}
 	return save_dict
@@ -44,6 +69,40 @@ func loadgameuu():
 		var current_line = parse_json(save_game.get_as_text())
 		$Player/KinematicBody2D.position.x = current_line["pos_x"]
 		$Player/KinematicBody2D.position.y = current_line["pos_y"]
+		signals.lives = current_line["lives"]
+		signals.lei = current_line["lei"]
+		if current_line["lei"] == true:
+			$Node2D/lei.queue_free()
+		if current_line["apple"]["1"] == 0:
+			$Node2D/apple.queue_free()
+		if current_line["apple"]["2"] == 0:
+			$Node2D/apple2.queue_free()
+		if current_line["apple"]["3"] == 0:
+			$Node2D/apple3.queue_free()
+		if current_line["appletree"]["1"] == 0:
+			$Navigation2D/TileMap/treeA1/appletree1.queue_free()
+		if current_line["appletree"]["2"] == 0:
+			$Navigation2D/TileMap/treeA1/appletree2.queue_free()
+		if current_line["appletree"]["3"] == 0:
+			$Navigation2D/TileMap/treeA1/appletree3.queue_free()
+		
+		
 		break
 	save_game.close()
 	
+
+
+	
+
+
+
+
+func _on_Area2D_body_entered(body):
+	if body is preload("res://Player/Player.gd"):
+		signals.treeap = true
+
+
+
+func _on_Area2D_body_exited(body):
+	if body is preload("res://Player/Player.gd"):
+		signals.treeap = false

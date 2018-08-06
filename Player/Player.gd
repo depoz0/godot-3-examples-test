@@ -3,23 +3,37 @@ extends KinematicBody2D
 export var MOTION_SPEED = 100
 
 
-onready var lives = signals.lives
 
 #SOunds
 onready var soundsteptimer = get_node("walkgrass/Timer")
 onready var grasssteps = get_node("walkgrass")
 
 func _ready():
+	
 	# Game settings FPS show/hide:
 	if $CanvasLayer/LoadSettings.showfps == "true":
 		$CanvasLayer/LoadSettings/FPS/Label.show()
 	else:
 		$CanvasLayer/LoadSettings/FPS/Label.hide()
 		
+	
 		
 	
 
 func _process(delta):
+	
+	#items in bar
+	if signals.lei == false:
+		$CanvasLayer/HUD/Button.hide()
+	if signals.lei == true:
+		$CanvasLayer/HUD/Button.show()
+
+		
+		
+		
+	#lives
+	$CanvasLayer/HUD/lives.text = str(signals.lives)
+	
 	var motion = Vector2()
 	
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
@@ -71,6 +85,21 @@ func _process(delta):
 	motion = motion.normalized() * MOTION_SPEED * delta
 	move_and_collide(motion)
 	
-	if lives < 0:
+	if signals.lives < 0:
 		$".".queue_free()
-		$H
+		
+	
+
+			#if item (lei) in hand
+	if $Sprite2.is_visible() == true and signals.treeap == true and !get_node("../../Navigation2D/TileMap/treeA1/treeapple"):
+		
+		print("tetett")
+		var apple = load("res://engine/items/apple.tscn")
+		var apple2 = apple.instance()
+		apple2.set_name("treeapple")
+		get_node("../../Navigation2D/TileMap/treeA1").add_child(apple2)
+		get_node("../../Navigation2D/TileMap/treeA1/treeapple").add_to_group("ontree")
+		get_node("../../Navigation2D/TileMap/treeA1/treeapple").scale.y = 0.45
+		get_node("../../Navigation2D/TileMap/treeA1/treeapple").scale.x = 0.45
+		get_node("../../Navigation2D/TileMap/treeA1/treeapple/Timer").start()
+	
