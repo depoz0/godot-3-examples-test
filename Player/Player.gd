@@ -17,9 +17,15 @@ func _ready():
 		$CanvasLayer/LoadSettings/FPS/Label.hide()
 		
 	
-		
+func _input(event):
 	
-
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 2: #mouse RIGHT_BUTTON clicked
+		if $Camera2D.get_zoom() == Vector2(0.5, 0.5):
+			$Camera2D.set_zoom(Vector2(2, 2))
+		elif $Camera2D.get_zoom() == Vector2(2, 2):
+			$Camera2D.set_zoom(Vector2(0.5, 0.5))
+			
+			
 func _process(delta):
 	
 	#items in bar
@@ -28,8 +34,6 @@ func _process(delta):
 	if signals.lei == true:
 		$CanvasLayer/HUD/Button.show()
 
-		
-		
 		
 	#lives
 	$CanvasLayer/HUD/lives.text = str(signals.lives)
@@ -47,8 +51,7 @@ func _process(delta):
 		#print (gooo)
 		#print (get_global_mouse_position())
 		#print (position)
-	if Input.is_mouse_button_pressed(BUTTON_RIGHT):
-		$Camera2D.set_zoom(Vector2(2, 2))
+	
 
 
 	
@@ -91,15 +94,6 @@ func _process(delta):
 	
 
 			#if item (lei) in hand
-	if $Sprite2.is_visible() == true and signals.treeap == true and !get_node("../../Navigation2D/TileMap/treeA1/treeapple"):
+
 		
-		print("tetett")
-		var apple = load("res://engine/items/apple.tscn")
-		var apple2 = apple.instance()
-		apple2.set_name("treeapple")
-		get_node("../../Navigation2D/TileMap/treeA1").add_child(apple2)
-		get_node("../../Navigation2D/TileMap/treeA1/treeapple").add_to_group("ontree")
-		get_node("../../Navigation2D/TileMap/treeA1/treeapple").scale.y = 0.45
-		get_node("../../Navigation2D/TileMap/treeA1/treeapple").scale.x = 0.45
-		get_node("../../Navigation2D/TileMap/treeA1/treeapple/Timer").start()
 	
