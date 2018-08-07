@@ -1,1 +1,2 @@
-# godot 3 examples test
+# godot 3 small game for android
+Trying to learn the Godot 3 and its possibilities by creating a small game. Nothing special...
