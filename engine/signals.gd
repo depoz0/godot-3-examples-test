@@ -8,7 +8,9 @@ signal bog
 var loadgame
 var lives = 10
 var lei = false
-var treeap = false
+var leiinhand = false
+var treeappleID
+
 
 func _ready():
 	# Called when the node is added to the scene for the first time.

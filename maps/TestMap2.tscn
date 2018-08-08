@@ -50,18 +50,18 @@ tracks/1/keys = {
 "values": [ Vector2( 224.158, 342 ), Vector2( 225, 342 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=4]
 
 custom_solver_bias = 0.0
 radius = 14.0946
 height = 5.95957
 
-[node name="Node2D" type="Node2D" index="0" groups=[
+[node name="Node2D" type="Node2D" groups=[
 "gamesave",
 ]]
 
@@ -434,7 +434,9 @@ region_enabled = true
 region_rect = Rect2( 32, 256, 32, 32 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="treeA1" type="Sprite" parent="Navigation2D/TileMap" index="7"]
+[node name="treeA1" type="Sprite" parent="Navigation2D/TileMap" index="7" groups=[
+"appletree",
+]]
 
 position = Vector2( 1263.52, 324.172 )
 z_index = 1
@@ -448,6 +450,8 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="Navigation2D/TileMap/treeA1" index="0"]
 
+editor/display_folded = true
+visible = false
 position = Vector2( -1.82544, 34.602 )
 scale = Vector2( 1.5924, 1.65285 )
 input_pickable = true
@@ -460,13 +464,15 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation2D/TileMap/treeA1/Area2D" index="0"]
 
+visible = false
 position = Vector2( 0.742737, 3.13838 )
 scale = Vector2( 1.64937, 1.17276 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="KinematicBody2D" type="StaticBody2D" parent="Navigation2D/TileMap/treeA1" index="1"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( -388, -105 )
 input_pickable = false
@@ -490,7 +496,6 @@ polygon = PoolVector2Array( 359.564, 147.409, 377.045, 152.538, 383.849, 161.121
 
 position = Vector2( -24.2114, 0.0161438 )
 scale = Vector2( 0.459319, 0.459319 )
-_sections_unfolded = [ "Pickable", "Transform", "Z Index" ]
 
 [node name="appletree2" parent="Navigation2D/TileMap/treeA1" index="3" groups=[
 "ontree",
@@ -498,7 +503,6 @@ _sections_unfolded = [ "Pickable", "Transform", "Z Index" ]
 
 position = Vector2( 19.5239, -7.15359 )
 scale = Vector2( 0.459319, 0.459319 )
-_sections_unfolded = [ "Pickable", "Transform", "Z Index" ]
 
 [node name="appletree3" parent="Navigation2D/TileMap/treeA1" index="4" groups=[
 "ontree",
@@ -506,9 +510,162 @@ _sections_unfolded = [ "Pickable", "Transform", "Z Index" ]
 
 position = Vector2( -5.57007, -35.4741 )
 scale = Vector2( 0.459319, 0.459319 )
-_sections_unfolded = [ "Pickable", "Transform", "Z Index" ]
 
-[node name="kst" type="Sprite" parent="Navigation2D/TileMap" index="8"]
+[node name="treeA2" type="Sprite" parent="Navigation2D/TileMap" index="8" groups=[
+"appletree",
+]]
+
+position = Vector2( 936.649, 253.258 )
+z_index = 1
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 929, 904, 94, 118 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="Navigation2D/TileMap/treeA2" index="0"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( -1.82544, 34.602 )
+scale = Vector2( 1.5924, 1.65285 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Audio Bus", "Collision", "Pickable", "Transform", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation2D/TileMap/treeA2/Area2D" index="0"]
+
+visible = false
+position = Vector2( 0.742737, 3.13838 )
+scale = Vector2( 1.64937, 1.17276 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="KinematicBody2D" type="StaticBody2D" parent="Navigation2D/TileMap/treeA2" index="1"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( -388, -105 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Navigation2D/TileMap/treeA2/KinematicBody2D" index="0"]
+
+position = Vector2( 2.42072, -0.85437 )
+build_mode = 0
+polygon = PoolVector2Array( 359.564, 147.409, 377.045, 152.538, 383.849, 161.121, 390.339, 152.328, 404.784, 154.526, 403.214, 146.676, 409.703, 146.257, 398.608, 139.453, 370.765, 139.244 )
+
+[node name="appletree1" parent="Navigation2D/TileMap/treeA2" index="2" groups=[
+"ontree",
+] instance=ExtResource( 6 )]
+
+position = Vector2( -24.2114, 0.0161438 )
+scale = Vector2( 0.459319, 0.459319 )
+
+[node name="appletree2" parent="Navigation2D/TileMap/treeA2" index="3" groups=[
+"ontree",
+] instance=ExtResource( 6 )]
+
+position = Vector2( 19.5239, -7.15359 )
+scale = Vector2( 0.459319, 0.459319 )
+
+[node name="appletree3" parent="Navigation2D/TileMap/treeA2" index="4" groups=[
+"ontree",
+] instance=ExtResource( 6 )]
+
+position = Vector2( -5.57007, -35.4741 )
+scale = Vector2( 0.459319, 0.459319 )
+
+[node name="treeA3" type="Sprite" parent="Navigation2D/TileMap" index="9" groups=[
+"appletree",
+]]
+
+position = Vector2( 880.139, 419.463 )
+z_index = 1
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 929, 904, 94, 118 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="Navigation2D/TileMap/treeA3" index="0"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( -1.82544, 34.602 )
+scale = Vector2( 1.5924, 1.65285 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation2D/TileMap/treeA3/Area2D" index="0"]
+
+position = Vector2( 0.742737, 3.13838 )
+scale = Vector2( 1.64937, 1.17276 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="KinematicBody2D" type="StaticBody2D" parent="Navigation2D/TileMap/treeA3" index="1"]
+
+visible = false
+position = Vector2( -388, -105 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Navigation2D/TileMap/treeA3/KinematicBody2D" index="0"]
+
+visible = false
+position = Vector2( 2.42072, -0.85437 )
+build_mode = 0
+polygon = PoolVector2Array( 359.564, 147.409, 377.045, 152.538, 383.849, 161.121, 390.339, 152.328, 404.784, 154.526, 403.214, 146.676, 409.703, 146.257, 398.608, 139.453, 370.765, 139.244 )
+
+[node name="appletree1" parent="Navigation2D/TileMap/treeA3" index="2" groups=[
+"ontree",
+] instance=ExtResource( 6 )]
+
+position = Vector2( -24.2114, 0.0161438 )
+scale = Vector2( 0.459319, 0.459319 )
+
+[node name="appletree2" parent="Navigation2D/TileMap/treeA3" index="3" groups=[
+"ontree",
+] instance=ExtResource( 6 )]
+
+position = Vector2( 19.5239, -7.15359 )
+scale = Vector2( 0.459319, 0.459319 )
+
+[node name="appletree3" parent="Navigation2D/TileMap/treeA3" index="4" groups=[
+"ontree",
+] instance=ExtResource( 6 )]
+
+position = Vector2( -5.57007, -35.4741 )
+scale = Vector2( 0.459319, 0.459319 )
+
+[node name="kst" type="Sprite" parent="Navigation2D/TileMap" index="10"]
 
 position = Vector2( 188.555, 624.735 )
 z_index = 1
@@ -517,7 +674,7 @@ region_enabled = true
 region_rect = Rect2( 863, 390, 97, 92 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="kst2" type="Sprite" parent="Navigation2D/TileMap" index="9"]
+[node name="kst2" type="Sprite" parent="Navigation2D/TileMap" index="11"]
 
 position = Vector2( 140.942, 768.934 )
 z_index = 1
@@ -596,7 +753,7 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation2D/Sprite2/StaticBody2D" index="0"]
 
 visible = false
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="MAPSIZE" type="TileMap" parent="Navigation2D" index="7"]
 
@@ -656,12 +813,10 @@ position = Vector2( -90.7997, -52.5269 )
 [node name="apple" parent="Node2D" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 1209.29, 374.282 )
-_sections_unfolded = [ "Pickable", "Transform", "Z Index" ]
 
 [node name="apple2" parent="Node2D" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 1307.5, 339.7 )
-_sections_unfolded = [ "Pickable", "Transform", "Visibility", "Z Index" ]
 
 [node name="apple3" parent="Node2D" index="2" instance=ExtResource( 6 )]
 
@@ -674,5 +829,13 @@ position = Vector2( 1119.87, 277.645 )
 [connection signal="body_entered" from="Navigation2D/TileMap/treeA1/Area2D" to="." method="_on_Area2D_body_entered"]
 
 [connection signal="body_exited" from="Navigation2D/TileMap/treeA1/Area2D" to="." method="_on_Area2D_body_exited"]
+
+[connection signal="body_entered" from="Navigation2D/TileMap/treeA2/Area2D" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="body_exited" from="Navigation2D/TileMap/treeA2/Area2D" to="." method="_on_Area2D_body_exited"]
+
+[connection signal="body_entered" from="Navigation2D/TileMap/treeA3/Area2D" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="body_exited" from="Navigation2D/TileMap/treeA3/Area2D" to="." method="_on_Area2D_body_exited"]
 
 

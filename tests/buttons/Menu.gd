@@ -162,7 +162,7 @@ func fps():			# FPS
 func resume_game(level):
 	var filenamee
 	var save_game = File.new()
-	if not save_game.file_exists("res://savegame.save"):
+	if not save_game.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.
 
     # We need to revert the game state so we're not cloning objects during loading. This will vary wildly depending on the needs of a project, so take care with this step.
@@ -172,7 +172,7 @@ func resume_game(level):
 	#	i.queue_free()
 
 	# Load the file line by line and process that dictionary to restore the object it represents
-	save_game.open("res://savegame.save", File.READ)
+	save_game.open("user://savegame.save", File.READ)
 	while not save_game.eof_reached():
 		var current_line = parse_json(save_game.get_as_text())
 		# First we need to create the object and add it to the tree and set its position.

@@ -29,7 +29,7 @@ func _on_Pause_pressed():
 		
 func save_game():
 	var save_game = File.new()
-	save_game.open("res://savegame.save", File.WRITE)
+	save_game.open("user://savegame.save", File.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("gamesave")
 	
 	for i in save_nodes:

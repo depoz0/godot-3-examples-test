@@ -58,6 +58,7 @@ margin_right = 90.0
 margin_bottom = 945.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+hint_tooltip = "Can be used for watering apple trees"
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -71,6 +72,7 @@ text = "LEI"
 icon = SubResource( 2 )
 flat = false
 align = 1
+_sections_unfolded = [ "Hint" ]
 
 [node name="Sprite" type="Sprite" parent="Button" index="0"]
 

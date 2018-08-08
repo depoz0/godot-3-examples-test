@@ -75,7 +75,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pickable", "Transform" ]
+_sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -112,7 +112,7 @@ blend_times = [  ]
 [node name="Timer" type="Timer" parent="." index="4"]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 10.0
 one_shot = false
 autostart = false
 

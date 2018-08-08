@@ -18,7 +18,9 @@ func _ready():
 func _on_Button_pressed():
 	var button_lei = get_node("../../Sprite2")
 	if button_lei.is_visible() == true:
+		signals.leiinhand = false
 		button_lei.hide()
 	elif button_lei.is_visible() == false:
+		signals.leiinhand = true
 		button_lei.show()
 	pass # replace with function body

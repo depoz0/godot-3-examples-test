@@ -61,10 +61,10 @@ func loadgameuu():
 
 	var filenamee
 	var save_game = File.new()
-	if not save_game.file_exists("res://savegame.save"):
+	if not save_game.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.
 
-	save_game.open("res://savegame.save", File.READ)
+	save_game.open("user://savegame.save", File.READ)
 	while not save_game.eof_reached():
 		var current_line = parse_json(save_game.get_as_text())
 		$Player/KinematicBody2D.position.x = current_line["pos_x"]
@@ -98,11 +98,21 @@ func loadgameuu():
 
 
 func _on_Area2D_body_entered(body):
+	
 	if body is preload("res://Player/Player.gd"):
-		signals.treeap = true
-
-
+		#signals.treeappleID = body.add_user_signal(
+		#print (body.position.x)
+		#print (body.position.y)
+		#print (body)
+		for tree in get_tree().get_nodes_in_group("appletree"):
+			#print (tree.position, " ", Vector2(body.position.x, body.position.y))
+			#print (tree.position - Vector2(body.position.x, body.position.y))
+			var vec = tree.position - Vector2(body.position.x, body.position.y)
+			if vec.x < 100 and vec.x > -100 and vec.y > -100 and vec.y < 100:
+				signals.treeappleID = tree
+				print (tree, " OK OK OK")
+				
 
 func _on_Area2D_body_exited(body):
 	if body is preload("res://Player/Player.gd"):
-		signals.treeap = false
+		signals.treeappleID = null
