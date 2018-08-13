@@ -1,3 +1,6 @@
+# apple.gd
+# 1 apple need to be in scene background to work!!!
+
 extends Area2D
 
 var taken = false
@@ -14,7 +17,7 @@ func _ready():
 func _process(delta):
 	
 	treescount = get_tree().get_nodes_in_group("appletree") #getting trees nodes
-	
+
 	for i in treescount:
 		var emptytree = i
 		var nods = i.get_tree().get_nodes_in_group("ontree") #getting apples on all trees
@@ -31,7 +34,7 @@ func _process(delta):
 		if signals.leiinhand == true and signals.treeappleID == i and gg == 0:
 			
 			print ("Planted")
-			for i in 3:
+			for i in randi() % 5 + 1: #how many apples to make on tree
 				var apple = load("res://engine/items/apple.tscn")
 				var apple2 = apple.instance()
 				var tseed = str(randi() % 9999999 + 1)

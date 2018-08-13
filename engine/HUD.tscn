@@ -19,7 +19,7 @@ region = Rect2( 0, 0, 0, 0 )
 margin = Rect2( 0, 0, 0, 0 )
 filter_clip = false
 
-[node name="HUD" type="Node2D"]
+[node name="HUD" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -83,6 +83,62 @@ region_enabled = true
 region_rect = Rect2( 709, 998, 22, 20 )
 _sections_unfolded = [ "Region" ]
 
+[node name="Polygon2D" type="Polygon2D" parent="." index="2"]
+
+visible = false
+position = Vector2( 10, 950 )
+scale = Vector2( 1.0098, 1.0625 )
+polygon = PoolVector2Array( 9.90291, 0, 505.049, 0, 514.951, -9.41174, 514.951, -70.5882, 505.049, -79.9999, 9.90291, -79.9999, 0, -70.5882, 0, -9.41174 )
+uv = PoolVector2Array(  )
+color = Color( 0.161133, 0.200996, 0.214844, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Polygon2D" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = -75.0
+margin_right = 510.0
+margin_bottom = -5.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = " Hi! I'm just relaxing..."
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = " Hi! I'm just relaxing..."
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode" ]
+
+[node name="Timer" type="Timer" parent="Polygon2D" index="1"]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = false
+autostart = true
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+[connection signal="timeout" from="Polygon2D/Timer" to="." method="_on_Timer_timeout"]
 
 

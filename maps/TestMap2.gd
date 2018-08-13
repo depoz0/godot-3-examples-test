@@ -13,14 +13,12 @@ func _ready():
 	if signals.loadgame == "true":
 		loadgameuu()
 		signals.loadgame = "false"
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+
+	$Player/KinematicBody2D/PlayerArea.connect("body_entered", self, "collisionenter")
+	$Player/KinematicBody2D/PlayerArea.connect("body_exited", self, "collisionexit")
 
 #func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+	#pass
 
 func save():
 	var apple1 = 1
@@ -91,9 +89,15 @@ func loadgameuu():
 	save_game.close()
 	
 
-
+func collisionenter(object): # Player collisions
+	if object.name == "Den":
+		$Player/KinematicBody2D/CanvasLayer/HUD/Polygon2D.show()
+	pass
 	
-
+func collisionexit(object): # Player collisions
+	if object.name == "Den":
+		$Player/KinematicBody2D/CanvasLayer/HUD/Polygon2D.hide()
+	pass
 
 
 
@@ -110,7 +114,7 @@ func _on_Area2D_body_entered(body):
 			var vec = tree.position - Vector2(body.position.x, body.position.y)
 			if vec.x < 100 and vec.x > -100 and vec.y > -100 and vec.y < 100:
 				signals.treeappleID = tree
-				print (tree, " OK OK OK")
+				print (tree, " Tree OK")
 				
 
 func _on_Area2D_body_exited(body):
